@@ -1,33 +1,26 @@
-void setup()
+ void setup()
 {
   size(400, 400);
   background(255);
   for (int i = 10; i < 350; i = i + 50)
   {
-    house(i, 20);
+    housev1(i, 20);
+    //housev2(i, 20);
   }
 }
 
-void house(int x, int y)
+// Variante sin push-popMatrix
+
+void housev1(int x, int y)
 {
   triangle(x + 15, y, x, y + 15, x + 30, y + 15);
   rect(x, y + 15, 30, 30);
   rect(x + 12, y + 30, 10, 15);
 }
 
-**************************************************
+// Variante con push-popMatrix
 
-void setup()
-{
-  size(400, 400);
-  background(255);
-  for (int i = 10; i < 350; i = i + 50)
-  {
-    house(i, 20);
-  }
-}
-
-void house(int x, int y)
+void housev2(int x, int y)
 {
   pushMatrix();
   translate(x, y);
