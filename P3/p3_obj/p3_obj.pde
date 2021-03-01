@@ -1,12 +1,14 @@
 PShape obj;
 
 void setup() {
-  size(600, 600, P2D);
-  svg = loadShape("lake_inkscape_curve_fill.svg");
+  size(600, 600, P3D);
+  obj = loadShape("lamp.obj");
 }
 
 void draw() {
   background(255);
-  scale(0.7);
+  translate(mouseX,mouseY,0);
+  scale(30);
+  rotateX(radians(180));
   shape(obj);
 }
