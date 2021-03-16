@@ -1,14 +1,14 @@
 PImage img;
-PGraphics dytex;
+PGraphics mitex;
 
 void setup() {
   size(640, 360, P3D);
   img = loadImage("logoulpgc.png");
   
-  dytex = createGraphics(img.width, img.height);
-  dytex.beginDraw();
-  dytex.image(img,0,0); // draw the image into the graphics object
-  dytex.endDraw();
+  mitex = createGraphics(img.width, img.height);
+  mitex.beginDraw();
+  mitex.image(img,0,0); // draw the image into the graphics object
+  mitex.endDraw();
 }
 
 void draw() {
@@ -17,7 +17,7 @@ void draw() {
   textureMode(NORMAL);
   textureWrap(REPEAT); 
   beginShape();
-  texture(dytex);  
+  texture(mitex);  
   vertex(-100, -100, 0, 0, 0);
   vertex( 100, -100, 0, 2, 0);
   vertex( 100,  100, 0, 2, 2);
@@ -28,9 +28,9 @@ void draw() {
 }
 
 void addRandomLine(){
-  dytex.beginDraw();
-  dytex.stroke(255,255,0); // yellow
-  dytex.strokeWeight(3); // need some weight to make sure it shows
-  dytex.line(random(dytex.width), random(dytex.height),random(dytex.width), random(dytex.height));
-  dytex.endDraw();
+  mitex.beginDraw();
+  mitex.stroke(255+random(-5,5),255+random(-5,5),0); // color líneas
+  mitex.strokeWeight(3); // grosor
+  mitex.line(random(mitex.width), random(mitex.height),random(mitex.width), random(mitex.height));
+  mitex.endDraw();
 }

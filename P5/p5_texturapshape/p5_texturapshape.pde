@@ -24,7 +24,6 @@ void draw() {
   //Iluminación al pulsar
   if (mousePressed) {
     pointLight(204, 153, 0, mouseX, mouseY, 400);
-    lightSpecular(100, 100, 100);
     directionalLight(0.8, 0.8, 0.8, 0, 0, -1);
   }
   
