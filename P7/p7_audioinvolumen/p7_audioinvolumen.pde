@@ -31,6 +31,6 @@ void draw() {
   float volumen = nivel.analyze();
   
   //Asocia ancho de rectángulo al nivel del volumen
-  int ancho = int(map(volumen, 0, 1, 1, 500));
+  int ancho = int(map(volumen, 0, 1, 1, width));
   rect(0,0,ancho,100);  
 }

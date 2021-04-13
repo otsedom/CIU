@@ -49,8 +49,8 @@ void draw() {
   fft.analyze(spectrum);
 
   for(int i = 0; i < bandas; i++){
-  // Resultado de FFT normalizado
-  // Línea por banda de frecuencia, considerando amplitud hasta 5
-  line( i, height, i, height - spectrum[i]*height/2*5 );
+    // Resultado de FFT normalizado
+    // Línea por banda de frecuencia, considerando amplitud hasta 5
+    line( i, height, i, height - spectrum[i]*height/2*5 );
   } 
 }
