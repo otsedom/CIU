@@ -41,23 +41,15 @@ vec3 perturbNormalArb(vec3 surf_pos, vec3 surf_norm, vec2 dHdxy) {
   return normalize(abs(fDet) * surf_norm - vGrad);
 }
 
-float blinnPhongFactor(vec3 lightDir, vec3 vertPos, vec3 vecNormal, float shine) {
-  vec3 np = normalize(vertPos);
-  vec3 ldp = normalize(lightDir - np);
-  return pow(max(0.0, dot(ldp, vecNormal)), shine);
-}
-
 void main() {  
   vec2 st = vertTexCoord.st;
   vec4 texColor = texture2D(texMap, st);
-  float specularStrength = texture2D(specularMap, st).r;
   
+  //Diffuse
   vec3 normal = perturbNormalArb(normalize(ecPosition), ecNormal, dHdxy_fwd(st));  
   vec3 direction = normalize(lightDir);
   float intensity = max(0.0, dot(direction, normal));  
   vec4 diffuseColor = texColor * vec4(vec3(intensity), 1) * vertColor;
   
-  vec4 specularColor = specularStrength * blinnPhongFactor(lightDir, ecPosition, ecNormal, vertShininess) * vertSpecular;
-
-  gl_FragColor = diffuseColor + vec4(specularColor.rgb, 0);
+  gl_FragColor = diffuseColor; //Parte difusa con normal perturbada
 }

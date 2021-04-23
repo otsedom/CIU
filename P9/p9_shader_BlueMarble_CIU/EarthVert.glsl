@@ -22,12 +22,19 @@ varying float vertShininess;
 varying vec3 lightDir;
 
 void main() {
-  gl_Position = transformMatrix * position;    
+  //Vértice en coordenadas transformadas 
+  gl_Position = transformMatrix * position; 
+  //Posición del vértice en coordenadas del ojo
   ecPosition = vec3(modelviewMatrix * position);  
+  //Normal del vértice en coordenadas del ojo
   ecNormal = normalize(normalMatrix * normal);
+  //Características de reflexión
   vertSpecular = specular;
   vertShininess = shininess;
+  //Coordenada de textura
   vertTexCoord = texMatrix * vec4(texCoord, 1.0, 1.0);
+  //Vector hacia la luz normalizado
   lightDir = normalize(lightPosition.xyz - ecPosition);  
+  //Color del vértice
   vertColor = color;
 }
