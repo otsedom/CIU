@@ -43,7 +43,7 @@ void draw() {
   translate(width/2, height/2);
   rotateY(ang);
   shape(obj);
-  ang += 0.01;
+  ang += 0.005;
   popMatrix();
   
   resetShader();
@@ -54,6 +54,15 @@ void draw() {
 }
 void mousePressed() {
   resetShader();  
-  modo++;
-  if (modo >= modomax) modo = 0;
+  if (mouseButton == LEFT){
+    modo++;
+    if (modo >= modomax) modo = 0;
+  }
+  else {
+    if (mouseButton == RIGHT){
+      modo--;
+      if (modo < 0) modo = modomax-1;
+    }
+  }
+  
 }

@@ -8,7 +8,7 @@ PImage alphaTex;
 PImage bumpMap;
 PImage specMap;
 PShader earthShader,earthShader0,earthShader1,earthShader2;
-PShader cloudShader0,cloudShader1,cloudShader;
+PShader cloudShader,cloudShader0,cloudShader1;
 
 float earthRotation;
 float cloudsRotation;
