@@ -3,7 +3,7 @@ PShader sh;
 void setup() {
   size(600, 600, P2D);
   noStroke();
-  sh = loadShader("Dibuja33.glsl");  
+  sh = loadShader("Dibuja0.glsl");  
 }
 
 
